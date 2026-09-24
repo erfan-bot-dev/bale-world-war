@@ -7,7 +7,6 @@ import re
 import os
 import threading
 from flask import Flask
-import turso_python
 import os
 
 # ============================================================
