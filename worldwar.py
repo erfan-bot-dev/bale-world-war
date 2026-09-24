@@ -562,19 +562,14 @@ def is_group(message):
 
 def get_connection():
 
-    turso_url = os.environ.get("TURSO_URL")
-    turso_token = os.environ.get("TURSO_TOKEN")
-
-    if turso_url and turso_token:
-        connection = libsql.connect("local_replica.db", sync_url=turso_url, auth_token=turso_token)
-        connection.sync()
-    else:
-        connection = sqlite3.connect(DATABASE_NAME, timeout=30)
+    connection = sqlite3.connect(
+        os.environ.get("DB_PATH", "world_war.db"),
+        timeout=30
+    )
 
     connection.row_factory = sqlite3.Row
 
     return connection
-
 # ============================================================
 # ساخت جدول ها
 # ============================================================
