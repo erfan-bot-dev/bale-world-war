@@ -49,7 +49,8 @@ def health():
 
 def run_web():
     port = int(os.environ.get("PORT", 8080))
-    web_app.run(host='0.0.0.0', port=port)
+    print(f"🌐 Starting web server on port {port}")
+    web_app.run(host='0.0.0.0', port=port, debug=False, use_reloader=False)
 
 
 # ============================================================
